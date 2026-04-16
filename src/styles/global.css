@@ -1,0 +1,78 @@
+:root {
+  --primary: #00ff88;
+  --bg: #0b0b0b;
+  --card-bg: #161616;
+  --text: #ffffff;
+  --text-muted: #a0a0a0;
+  --border: #2a2a2a;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+
+body { background-color: var(--bg); color: var(--text); line-height: 1.6; }
+
+.container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
+
+/* Header */
+.main-header {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 20px 5%; background: rgba(0,0,0,0.9); border-bottom: 1px solid var(--border);
+  position: sticky; top: 0; z-index: 1000; backdrop-filter: blur(10px);
+}
+
+.nav-btn {
+  background: transparent; color: var(--text-muted); border: none;
+  padding: 8px 15px; cursor: pointer; font-weight: 600; transition: 0.3s;
+}
+.nav-btn:hover { color: var(--primary); }
+
+/* Cards */
+.grid { display: grid; gap: 25px; }
+.grid-3 { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+.grid-2 { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+
+.card {
+  background: var(--card-bg); border: 1px solid var(--border);
+  padding: 30px; border-radius: 15px; transition: 0.4s;
+}
+.card:hover { border-color: var(--primary); transform: translateY(-5px); }
+
+.title { font-size: 2.5rem; text-align: center; margin-bottom: 40px; color: var(--primary); }
+.text-muted { color: var(--text-muted); font-size: 0.9rem; }
+
+.btn-cta {
+  background: var(--primary); color: #000; border: none;
+  padding: 12px 25px; border-radius: 8px; font-weight: bold; cursor: pointer;
+}
+
+/* Footer */
+.main-footer { background: #050505; border-top: 1px solid var(--border); padding: 40px 0; margin-top: 60px; text-align: center; }
+
+
+.btn-cta {
+  background: linear-gradient(135deg, #7b2cff, #b84cff);
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.btn-cta:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+.card {
+  background: #111;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 0 20px rgba(123, 44, 255, 0.2);
+}
+
+body {
+  background: #0a0a0f;
+  color: white;
+}
