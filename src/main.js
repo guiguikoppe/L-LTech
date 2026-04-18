@@ -6,7 +6,6 @@ import Contato from './pages/Contato.js'
 import Header from './components/Header.js'
 import Footer from './components/Footer.js'
 
-// Função para trocar páginas
 function showPage(page) {
     const pages = {
         home: Home,
@@ -27,12 +26,49 @@ function showPage(page) {
     window.scrollTo(0, 0)
 }
 
-// deixa global (pra funcionar nos botões)
+// deixa global
 window.showPage = showPage
 
-// inicialização
+// 🔥 INICIALIZAÇÃO
 window.onload = () => {
+
+    // HEADER + FOOTER
     document.getElementById('header-root').innerHTML = Header()
     document.getElementById('footer-root').innerHTML = Footer()
+
+    // página inicial
     showPage('home')
-}
+
+    // 🍔 MENU HAMBURGUER
+    const hamburger = document.getElementById('hamburger');
+    const nav = document.getElementById('nav');
+
+    if (!hamburger || !nav) return;
+
+    // abrir/fechar menu
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        nav.classList.toggle('active');
+    });
+
+    // 🔥 FECHAR AO CLICAR EM QUALQUER ITEM
+    const navButtons = nav.querySelectorAll('.nav-btn');
+
+    navButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const page = btn.getAttribute('data-page');
+
+            if (page) showPage(page);
+
+            nav.classList.remove('active');
+            hamburger.classList.remove('active');
+        });
+    });
+};
+
+navButtons.forEach(btn => {
+  btn.addEventListener('click', () => {
+    navButtons.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+  });
+});
